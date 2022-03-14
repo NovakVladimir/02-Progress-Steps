@@ -3,6 +3,9 @@ const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 const circles = document.querySelectorAll('.circle');
 
+var sound = document.createElement('audio');
+sound.src = './audio/1.mp3'
+
 let currentActive = 1;
 
 next.addEventListener('click', ()=> {
@@ -25,4 +28,6 @@ function update() {
     progress.style.width = (actives.length-1) / (circles.length-1) * 100 + "%";
     currentActive === 1? prev.disabled = true : prev.disabled = false;
     currentActive === circles.length? next.disabled = true : next.disabled = false;
+    sound.play();
+
 }
