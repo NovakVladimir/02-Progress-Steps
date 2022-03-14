@@ -4,7 +4,9 @@ const next = document.getElementById('next');
 const circles = document.querySelectorAll('.circle');
 
 var sound = document.createElement('audio');
-sound.src = './audio/1.mp3'
+sound.src = './audio/1.mp3';
+var sound_2 = document.createElement('audio');
+sound_2.src = './audio/2.mp3'
 
 let currentActive = 1;
 
@@ -28,6 +30,5 @@ function update() {
     progress.style.width = (actives.length-1) / (circles.length-1) * 100 + "%";
     currentActive === 1? prev.disabled = true : prev.disabled = false;
     currentActive === circles.length? next.disabled = true : next.disabled = false;
-    sound.play();
-
+    currentActive % 2 === 0? sound.play() : sound_2.play();
 }
